@@ -1,0 +1,106 @@
+set nocompatible
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+call pathogen#infect()
+
+filetype off
+
+Bundle 'gmarik/vundle'
+
+"My Bundles here
+Bundle 'scrooloose/nerdtree'
+Bundle 'sjl/gundo.vim.git'
+Bundle 'corntrace/bufexplorer'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'mileszs/ack.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'kien/ctrlp.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'ddollar/nerdcommenter'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
+Bundle 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+
+map <Leader><Leader>l <Plug>(easymotion-lineforward)
+map <Leader><Leader>h <Plug>(easymotion-linebackward)
+
+nmap <c-z> :TagbarToggle<CR>
+
+filetype plugin indent on
+
+syntax on
+set ruler
+set t_Co=256
+colorscheme vividchalk
+set cursorline                    " turns on indicator
+hi cursorline cterm=none   " turns off underline
+"hi cursorline ctermbg=16   " 16 is black
+
+
+set hidden
+set scrolloff=8
+set nowrap
+set nu
+set tabstop=4 shiftwidth=4
+set expandtab
+set backspace=indent,eol,start
+set smartcase
+
+set autoindent
+set smartindent
+set smarttab
+
+set showmatch
+set incsearch
+set hlsearch
+
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+
+"CtrlP mappings
+let g:ctrp_map= '<c-p>'
+let g:ctrp_cmd = 'CtrlP'
+
+au BufNewFile,BufRead *.ino set filetype=c
+au BufNewFile,BufRead *.launch set filetype=xml
+
+
+au FileType tex set spell
+au FileType tex highlight OverLength ctermbg=red ctermfg=white guibg=#000000
+au FileType tex set tw=72 | set fo=cqt | set  wm=0 
+
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |
+                     \ exe "normal g'\"" | endif 
+
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
+
+
+
+
+"let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_global_ycm_extra_conf = '/home/ataylor/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
