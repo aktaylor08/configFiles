@@ -1,11 +1,10 @@
 set nocompatible
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-call pathogen#infect()
-
 filetype off
 
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Bundle 'gmarik/Vundle.vim'
 
 "My Bundles here
 Bundle 'scrooloose/nerdtree'
@@ -25,12 +24,13 @@ Bundle 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 
+call vundle#end()
+filetype plugin indent on
 map <Leader><Leader>l <Plug>(easymotion-lineforward)
 map <Leader><Leader>h <Plug>(easymotion-linebackward)
 
 nmap <c-z> :TagbarToggle<CR>
 
-filetype plugin indent on
 
 syntax on
 set ruler
