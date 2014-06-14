@@ -23,6 +23,9 @@ Bundle 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
+" Colorschemes
+Plugin 'tpope/vim-vividchalk'  
+
 
 call vundle#end()
 filetype plugin indent on
