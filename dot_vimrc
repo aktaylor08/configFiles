@@ -39,8 +39,8 @@ syntax on
 set ruler
 set t_Co=256
 colorscheme vividchalk
-set cursorline                    " turns on indicator
-hi cursorline cterm=none   " turns off underline
+" set cursorline                    " turns on indicator
+" hi cursorline cterm=none   " turns off underline
 "hi cursorline ctermbg=16   " 16 is black
 
 
@@ -67,8 +67,11 @@ match OverLength /\%81v.\+/
 
 
 "CtrlP mappings
-let g:ctrp_map= '<c-p>'
-let g:ctrp_cmd = 'CtrlP'
+let g:ctrlp_map= '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+map ,b :CtrlPBuffer<CR>
+
 
 au BufNewFile,BufRead *.ino set filetype=c
 au BufNewFile,BufRead *.launch set filetype=xml
