@@ -19,12 +19,12 @@ Bundle 'ddollar/nerdcommenter'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'SirVer/ultisnips'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'gorkunov/smartgf.vim'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
-" Colorschemes
-Plugin 'tpope/vim-vividchalk'  
 
 
 call vundle#end()
@@ -35,13 +35,10 @@ map <Leader><Leader>h <Plug>(easymotion-linebackward)
 nmap <c-z> :TagbarToggle<CR>
 
 
-syntax on
+syntax enable 
+set background=dark
+colorscheme solarized
 set ruler
-set t_Co=256
-colorscheme vividchalk
-" set cursorline                    " turns on indicator
-" hi cursorline cterm=none   " turns off underline
-"hi cursorline ctermbg=16   " 16 is black
 
 
 set hidden
@@ -62,15 +59,13 @@ set incsearch
 set hlsearch
 
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 
 
 "CtrlP mappings
 let g:ctrlp_map= '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-map ,b :CtrlPBuffer<CR>
+map <c-k> :CtrlPBuffer<CR>
 
 
 au BufNewFile,BufRead *.ino set filetype=c
