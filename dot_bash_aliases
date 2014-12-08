@@ -1,0 +1,9 @@
+alias mkidr="mkdir"
+alias ack="ack-grep"
+alias vicon="ssh nimbus@vicon"
+
+function rosn
+{
+    export ROS_NAMESPACE=$1
+
+}
