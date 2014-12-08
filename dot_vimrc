@@ -32,7 +32,7 @@ filetype plugin indent on
 map <Leader><Leader>l <Plug>(easymotion-lineforward)
 map <Leader><Leader>h <Plug>(easymotion-linebackward)
 
-nmap <c-z> :TagbarToggle<CR>
+nmap <c-x> :TagbarToggle<CR>
 
 
 syntax enable 
